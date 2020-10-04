@@ -14,11 +14,25 @@
     </ol>    
     <h2>
         <?
-            echo $_GET['id'];
+            if(isset($_GET['id']))
+            {
+                echo $_GET['id'];
+            }
+            else
+            {
+                echo "Welcome";
+            }
         ?>
     </h2>   
     <?
-        echo file_get_contents("data/".$_GET['id']); // 파일 불러오기
+        if(isset($_GET['id']))
+        {
+            echo file_get_contents("data/".$_GET['id']); // 파일 불러오기
+        }
+        else
+        {
+            echo "Hello, PHP";
+        }
     ?>
 </body>
 </html>
