@@ -16,8 +16,9 @@
         <?
             echo $_GET['id'];
         ?>
-    </h2>
-    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsa aliquam nemo, error sequi a explicabo quae illo odio suscipit, repudiandae natus mollitia dolorum voluptatem nisi animi excepturi molestias, libero ratione.
-    
+    </h2>   
+    <?
+        echo file_get_contents("data/".$_GET['id']); // 파일 불러오기
+    ?>
 </body>
 </html>
