@@ -8,15 +8,29 @@
 <body>
     <h1>WEB</h1>
     <ol>
-        <li><a href="index.php?id=HTML">HTML</a></li>
-        <li><a href="index.php?id=CSS">CSS</a></li>
-        <li><a href="index.php?id=JavaScript">JavaScript</a></li>
+        <?
+            $list = scandir('data');
+            $i = 0;
+            while($i < count($list))
+            {
+                if($list[$i] != '.')
+                {
+                    if($list[$i] != '..')
+                    {
+        ?>
+                        <li><a href="index.php?id=<?=$list[$i]?>"><?=$list[$i]?></a></li>
+        <?
+                    }
+                }
+                $i++;
+            }
+        ?>
     </ol>    
     <h2>
         <?
             if(isset($_GET['id']))
             {
-                echo $_GET['id'];
+                echo $_GET['id']; 
             }
             else
             {
