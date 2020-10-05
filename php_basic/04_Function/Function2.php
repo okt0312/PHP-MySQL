@@ -25,5 +25,15 @@
         }
         sum(2, 4);
     ?>
+
+    <h2>return</h2>
+    <?
+        function sum2($left, $right)
+        {
+            return $left + $right;
+        }
+
+        print(sum2(2, 4));
+    ?>
 </body>
 </html>
