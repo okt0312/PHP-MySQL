@@ -14,8 +14,16 @@
             print("test string1<br>");
             print("test string2<br>");
         }
-
         basic();
+    ?>
+
+    <h2>parameter &amp; argument</h2>
+    <?
+        function sum($left, $right)
+        {
+            print($left + $right."<br>");
+        }
+        sum(2, 4);
     ?>
 </body>
 </html>
