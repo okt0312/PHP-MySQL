@@ -55,6 +55,18 @@
     <ol>
         <? print_list(); ?>
     </ol>    
+    <a href="create.php">creat</a>
+    <form action="create_process.php" method="POST">
+        <p>
+            <input type="text" name="title" placeholder="title">
+        </p>
+        <p>
+            <textarea name="description" cols="30" rows="10" placeholder="description"></textarea>
+        </p>
+        <p>
+            <input type="submit">
+        </p>
+    </form>
     <h2>
         <? print_title(); ?>
     </h2>   
