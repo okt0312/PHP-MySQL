@@ -1,3 +1,7 @@
+<?
+    require_once('lib/print.php');
+    require_once('view/top.php');
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
