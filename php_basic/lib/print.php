@@ -3,7 +3,7 @@
     {
         if(isset($_GET['id']))
         {
-            echo $_GET['id']; 
+            echo htmlspecialchars($_GET['id']); 
         }
         else
         {
@@ -17,11 +17,12 @@
         $i = 0;
         while($i < count($list))
         {
+            $title = htmlspecialchars($list[$i]);
             if($list[$i] != '.')
             {
                 if($list[$i] != '..')
                 {
-                    echo "<li><a href=\"index.php?id=$list[$i]\">$list[$i]</a></li>";
+                    echo "<li><a href=\"index.php?id=$title\">$title</a></li>";
                 }
             }
             $i++;
@@ -32,7 +33,7 @@
     {
         if(isset($_GET['id']))
         {
-            echo file_get_contents("data/".$_GET['id']); // 파일 불러오기
+            echo htmlspecialchars(file_get_contents("data/".$_GET['id'])); // 파일 불러오기
         }
         else
         {

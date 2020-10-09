@@ -21,5 +21,6 @@
             <input type="submit">
         </p>
     </form>
-</body>
-</html>
+<?
+    require_once('view/bottom.php')
+?>
