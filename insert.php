@@ -14,5 +14,9 @@
                     'MySQL is ..',
                     NOW()
                 )";
-    mysqli_query($conn, $sql) or die($sql);
+    $result = mysqli_query($conn, $sql);
+    if($result === false)
+    {
+        echo mysqli_error($conn);
+    }
 ?>
