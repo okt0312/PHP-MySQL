@@ -1,10 +1,18 @@
 <?
-// https://www.php.net/manual/en/mysqli.quickstart.dual-interface.php
+    // https://www.php.net/manual/en/mysqli.quickstart.dual-interface.php
 
-// $mysqli = mysqli_connect("example.com", "user", "password", "database");
-// $res = mysqli_query($mysqli, "SELECT 'Please, do not use ' AS _msg FROM DUAL");
-// $row = mysqli_fetch_assoc($res);
-// echo $row['_msg'];
+    // $mysqli = mysqli_connect("example.com", "user", "password", "database");
+    // $res = mysqli_query($mysqli, "SELECT 'Please, do not use ' AS _msg FROM DUAL");
+    // $row = mysqli_fetch_assoc($res);
+    // echo $row['_msg'];
 
-mysqli_connect("localhost", "root", "qwe123", "opentutorials");
+    $conn = mysqli_connect("localhost", "root", "qwe123", "opentutorials");
+    $sql = "INSERT INTO topic
+                (title, description, created)
+                VALUES(
+                    'MySQL',
+                    'MySQL is ..',
+                    NOW()
+                )";
+    mysqli_query($conn, $sql) or die($sql);
 ?>
