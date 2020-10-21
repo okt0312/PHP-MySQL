@@ -1,11 +1,16 @@
 <?
     $conn = mysqli_connect('localhost', 'root', 'qwe123', 'opentutorials');
+    
+    $filtered = array(
+        'title' => mysqli_escape_string($conn, $_POST['title']),
+        'description' => mysqli_escape_string($conn, $_POST['description'])
+    );
 
     $sql = "INSERT INTO topic
               (title, description, created)
             VALUES(
-                    '".$_POST['title']."',
-                    '".$_POST['description']."',
+                    '".$filtered['title']."',
+                    '".$filtered['description']."',
                     NOW()    
                 )";
     
@@ -18,5 +23,5 @@
     else
     {
         echo "성공했습니다. <a href='index.php'>돌아가기</a>";
-    }
+    } 
 ?>
