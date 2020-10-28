@@ -14,8 +14,6 @@ $article = array(
     'title'=>'Welcome',
     'description'=>'Hello, web'
 );
-
-$update = "";
 if(isset($_GET['id']))
 {
     $filtered_id = mysqli_real_escape_string($conn, $_GET['id']);
@@ -26,10 +24,9 @@ if(isset($_GET['id']))
         'title'=>$row['title'],
         'description'=>$row['description']
     );
-
-    $update = "<a href='update.php?id=".$_GET['id']."'>update</a>";
 }
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -38,13 +35,19 @@ if(isset($_GET['id']))
     <title>WEB</title>
 </head>
 <body>
-    <h1><a href="index.php">WEB</a></h1>
+<h1><a href="index.php">WEB</a></h1>
     <ol>
         <?=$list?>
     </ol>
     <a href="create.php">create</a>
-    <?=$update?>
     <h2><?=$article['title']?></h2>
     <?=$article['description']?>
+    <form action="process_create.php" method="POST">
+        <p><input type="text" name="title" placeholder="title"></p>
+        <p>
+            <textarea name="description" cols="30" rows="10" placeholder="description"></textarea>
+        </p>
+        <p><input type="submit"></p>
+    </form>
 </body>
 </html>
