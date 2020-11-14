@@ -42,7 +42,8 @@ if(isset($_GET['id']))
     <a href="create.php">create</a>
     <h2><?=$article['title']?></h2>
     <?=$article['description']?>
-    <form action="process_create.php" method="POST">
+    <form action="process_update.php" method="POST">
+        <input type="hidden" name="id" value="<?=$_GET['id']?>">
         <p><input type="text" name="title" placeholder="title"></p>
         <p>
             <textarea name="description" cols="30" rows="10" placeholder="description"></textarea>
