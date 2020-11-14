@@ -15,7 +15,8 @@ $article = array(
     'description'=>'Hello, web'
 );
 
-$update = "";
+$update_link = "";
+$delete_link = "";
 if(isset($_GET['id']))
 {
     $filtered_id = mysqli_real_escape_string($conn, $_GET['id']);
@@ -27,7 +28,13 @@ if(isset($_GET['id']))
         'description'=>$row['description']
     );
 
-    $update = "<a href='update.php?id=".$_GET['id']."'>update</a>";
+    $update_link = "<a href='update.php?id=".$_GET['id']."'>update</a>";
+    $delete_link = "
+        <form action='process_delete.php' method='post'>
+            <input type='hidden' name='id' value='".$_GET['id']."'>
+            <input type='submit' value='delete'>
+        </form>
+    ";
 }
 ?>
 <!DOCTYPE html>
@@ -43,7 +50,8 @@ if(isset($_GET['id']))
         <?=$list?>
     </ol>
     <a href="create.php">create</a>
-    <?=$update?>
+    <?=$update_link?>
+    <?=$delete_link?>
     <h2><?=$article['title']?></h2>
     <?=$article['description']?>
 </body>
